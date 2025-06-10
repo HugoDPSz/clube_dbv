@@ -1,10 +1,10 @@
 from flask import Blueprint, request, jsonify
-from app.models import db, Desbravador
+from app.models.desbravador import db, Desbravador
 from datetime import datetime
 
-bp = Blueprint('desbravadores', __name__, url_prefix='/api/desbravadores')
+bp_desbravador = Blueprint('desbravadores', __name__, url_prefix='/api/desbravadores')
 
-@bp.route('/', methods=['GET'])
+@bp_desbravador.route('/', methods=['GET'])
 def listar():
     desbravadores = Desbravador.query.all()
     return jsonify([{
@@ -15,7 +15,7 @@ def listar():
         'classe_id': d.classe_id
     } for d in desbravadores])
 
-@bp.route('/', methods=['POST'])
+@bp_desbravador.route('/', methods=['POST'])
 def criar():
     data = request.json
     try:

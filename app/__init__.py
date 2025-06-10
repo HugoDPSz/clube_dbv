@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
-from .models import db
+from app.models import db
 
 def create_app():
     app = Flask(__name__)
@@ -10,7 +10,11 @@ def create_app():
     db.init_app(app)
 
     with app.app_context():
-        from .routes import desbravadores
-        app.register_blueprint(desbravadores.bp)
-
+        from .routes import desbravador, unidade, classe
+        app.register_blueprint(desbravador.bp_desbravador)
+        app.register_blueprint(unidade.bp_unidade)
+        app.register_blueprint(classe.bp_classe)
+        
+        
+        db.create_all()
     return app
