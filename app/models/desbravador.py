@@ -1,5 +1,6 @@
 from app.models import db
 from datetime import datetime
+from .desbravador_especialidade import DesbravadorEspecialidade
 
 class Desbravador(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -7,6 +8,8 @@ class Desbravador(db.Model):
     data_nascimento = db.Column(db.Date, nullable=False)
     unidade_id = db.Column(db.Integer, db.ForeignKey('unidade.id'))
     classe_id = db.Column(db.Integer, db.ForeignKey('classe.id'))
+
+    especialidades_conquistadas = db.relationship('DesbravadorEspecialidade', back_populates='desbravador')
 
     def to_dict(self):
         return {

@@ -1,4 +1,5 @@
 from . import db
+from .desbravador_especialidade import DesbravadorEspecialidade
 
 pre_requisitos = db.Table(
     'pre-requisitos',
@@ -17,6 +18,8 @@ class Especialidade(db.Model):
         secondaryjoin=id == pre_requisitos.c.pre_requisito_id,
         backref= 'referida por'
     )
+
+    desbravadores_conquistaram = db.relationship('DesbravadorEspecialidade', back_populates='especialidade')
 
     def to_dict(self):
         return {
