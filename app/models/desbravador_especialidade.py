@@ -4,8 +4,8 @@ from datetime import date
 class DesbravadorEspecialidade(db.Model):
     __tablename__ = 'desbravador_especialidade'
 
-    desbravador_id = db.Column(db.Integer, db.ForeingKey('desbravador.id'), primary_key= True)
-    especialidade_id = db.Column(db.Integer, db.ForeingKey('especialidade.id'), primary_key = True)
+    desbravador_id = db.Column(db.Integer, db.ForeignKey('desbravador.id'), primary_key= True)
+    especialidade_id = db.Column(db.Integer, db.ForeignKey('especialidade.id'), primary_key = True)
     data_conclusao = db.Column(db.Date, default= date.today)
 
     desbravador = db.relationship('Desbravador', back_populates = 'especialidades_conquistadas')

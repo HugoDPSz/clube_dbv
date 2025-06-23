@@ -1,21 +1,21 @@
 from flask import Blueprint, jsonify, request
-from models import db
-from models.classe import Classe
-from models.especialidade import Especialidade
+from app.models import db
+from app.models.classe import Classe
+from app.models.especialidade import Especialidade
 
-bp = Blueprint('classes', __name__, url_prefix='/api/classes')
+bp_classe = Blueprint('classes', __name__, url_prefix='/api/classes')
 
-@bp.route('/', methods=['GET'])
+@bp_classe.route('/', methods=['GET'])
 def listar_classes():
     classes = Classe.query.all()
     return jsonify([c.to_dict() for c in classes])
 
-@bp.route('/<int:id>', methods=['GET'])
+@bp_classe.route('/<int:id>', methods=['GET'])
 def obter_classe(id):
     classe = Classe.query.get_or_404(id)
     return jsonify(classe.to_dict())
 
-@bp.route('/', methods=['POST'])
+@bp_classe.route('/', methods=['POST'])
 def criar_classe():
     data = request.json
     nome = data.get('nome')
@@ -35,7 +35,7 @@ def criar_classe():
 
     return jsonify(nova_classe.to_dict()), 201
 
-@bp.route('/<int:id>', methods=['PUT'])
+@bp_classe.route('/<int:id>', methods=['PUT'])
 def atualizar_classe(id):
     classe = Classe.query.get_or_404(id)
     data = request.json
@@ -50,7 +50,7 @@ def atualizar_classe(id):
     db.session.commit()
     return jsonify(classe.to_dict())
 
-@bp.route('/<int:id>', methods=['DELETE'])
+@bp_classe.route('/<int:id>', methods=['DELETE'])
 def deletar_classe(id):
     classe = Classe.query.get_or_404(id)
     db.session.delete(classe)
