@@ -10,6 +10,7 @@ class Desbravador(db.Model):
     classe_id = db.Column(db.Integer, db.ForeignKey('classe.id'))
 
     especialidades_conquistadas = db.relationship('DesbravadorEspecialidade', back_populates='desbravador')
+    mensalidades = db.relationship("Mensalidade", back_populates="desbravador")
 
     def to_dict(self):
         return {
