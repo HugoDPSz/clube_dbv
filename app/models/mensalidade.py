@@ -1,7 +1,7 @@
 from datetime import date
 from app.models import db
 
-class Mensaldiade(db.Model):
+class Mensalidade(db.Model):
     __tablename__ = 'Mensalidade'
     id = db.Column(db.Integer, primary_key=True)
     desbravador_id = db.Column(db.Integer, db.ForeignKey('desbravador.id'))
