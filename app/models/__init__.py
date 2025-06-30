@@ -9,4 +9,5 @@ from .especialidade import Especialidade, pre_requisitos
 from .desbravador import Desbravador
 from .desbravador_especialidade import DesbravadorEspecialidade
 from .mensalidade import Mensalidade
-from .caixa import Caixa
+from .account import Account
+from .transaction import Transaction
