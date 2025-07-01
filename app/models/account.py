@@ -7,7 +7,4 @@ class Account(db.Model):
     # Tipos: 'Ativo', 'Passivo', 'Patrimônio Líquido', 'Receita', 'Despesa'
     type = db.Column(db.String(50), nullable=False)
     description = db.Column(db.String(255))
-    transactions = db.relationship('Transaction', backref='account', lazy=True)
-
-    def __repr__(self):
-        return f'<Account {self.name}>'
+    transactions = db.relationship('Transaction', back_populates='account', lazy=True)

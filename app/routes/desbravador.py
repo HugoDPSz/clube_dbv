@@ -2,7 +2,7 @@ from flask import Blueprint, request, jsonify
 from app.models.desbravador import db, Desbravador
 from datetime import datetime
 
-bp_desbravador = Blueprint('desbravadores', __name__, url_prefix='/api/desbravadores')
+bp_desbravador = Blueprint('desbravadores', __name__, url_prefix='/desbravadores')
 
 @bp_desbravador.route('/', methods=['GET'])
 def listar():

@@ -7,7 +7,7 @@ class Mensalidade(db.Model):
     desbravador_id = db.Column(db.Integer, db.ForeignKey('desbravador.id'))
     mes_referencia = db.Column(db.String(7), nullable=False) #YYYY-MM
     valor = db.Column(db.Float, nullable=False)
-    pago = db.Column(db.Boolean, defalt=False)
+    pago = db.Column(db.Boolean, default=False)
     data_pagamento = db.Column(db.Date)
 
     desbravador = db.relationship("Desbravador", back_populates="mensalidades")

@@ -2,7 +2,7 @@ from flask import Blueprint, request, jsonify
 from app.models.unidade import Unidade
 from app import db
 
-bp_unidade = Blueprint('unidades', __name__, url_prefix='/api/unidades')
+bp_unidade = Blueprint('unidades', __name__, url_prefix='/unidades')
 
 @bp_unidade.route('/', methods=['GET'])
 def listar():

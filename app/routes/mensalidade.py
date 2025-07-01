@@ -4,7 +4,7 @@ from datetime import date
 from app.models.transaction import Transaction
 from app.models.account import Account
 
-bp_mensalidade = Blueprint('mensalidade', __name__, url_prefix='/api/mensalidade')
+bp_mensalidade = Blueprint('mensalidade', __name__, url_prefix='/mensalidades')
 
 @bp_mensalidade.route('/', methods=['GET'])
 def listar():

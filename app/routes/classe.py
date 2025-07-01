@@ -3,7 +3,7 @@ from app.models import db
 from app.models.classe import Classe
 from app.models.especialidade import Especialidade
 
-bp_classe = Blueprint('classes', __name__, url_prefix='/api/classes')
+bp_classe = Blueprint('classes', __name__, url_prefix='/classes')
 
 @bp_classe.route('/', methods=['GET'])
 def listar_classes():

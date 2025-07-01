@@ -5,7 +5,7 @@ from app.models.especialidade import Especialidade
 from app.models.desbravador_especialidade import DesbravadorEspecialidade
 from datetime import date
 
-bp_conquistas = Blueprint('desbravador_especialidade', __name__, url_prefix='/api/conquistas')
+bp_conquistas = Blueprint('desbravador_especialidade', __name__, url_prefix='/conquistas')
 
 @bp_conquistas.route('/', methods=['POST'])
 def registrar_conquista():

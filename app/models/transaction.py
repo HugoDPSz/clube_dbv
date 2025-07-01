@@ -9,7 +9,6 @@ class Transaction(db.Model):
     transaction_date = db.Column(db.Date, nullable=False)
     account_id = db.Column(db.Integer, db.ForeignKey('account.id'), nullable=False)
     
-    # Adicionando o vínculo direto com a mensalidade para rastreabilidade
     mensalidade_id = db.Column(db.Integer, db.ForeignKey('Mensalidade.id'), nullable=True)
 
-    account = db.relationship('Account', backref='transactions')
+    account = db.relationship('Account', back_populates='transactions')
